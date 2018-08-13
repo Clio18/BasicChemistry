@@ -1,5 +1,5 @@
 import java.sql.SQLException;
 
-public interface getMassDAO {
+public interface DAO {
     double getMass(String s) throws SQLException;
 }
