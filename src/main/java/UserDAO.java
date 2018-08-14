@@ -18,8 +18,8 @@ public class UserDAO implements DAO {
             //Display values
         }
         rs.close();
-
         connection.commit();
+        connection.close();
         return mas;
     }
 }

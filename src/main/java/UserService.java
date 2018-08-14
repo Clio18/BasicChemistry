@@ -18,9 +18,10 @@ public class UserService implements Service {
 
     @Override
     public double getMolecularMass(String str) throws SQLException {
+        assert !str.contains(" "):"Not a single word: "+ str;
         char[] ss = str.toCharArray();
         ArrayList<String> list = new ArrayList();
-        String n = "";
+        String n;
         for (int i = 0; i < ss.length; i++) {
             if (Character.isUpperCase(ss[i])) {
                 list.add(String.valueOf(ss[i]));
@@ -31,7 +32,7 @@ public class UserService implements Service {
             }
         }
         ArrayList<Double> doubleList = new ArrayList<>();
-        double massEl = 0;
+        double massEl;
 
         for (int i = 0; i < list.size(); i++) {
             massEl = userDAO.getMass(list.get(i).split("\\d")[0]);
